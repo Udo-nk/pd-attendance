@@ -11,3 +11,6 @@ libs/
 app/css/
 
 node_modules
+
+# sass stuff
+.sass-cache/
