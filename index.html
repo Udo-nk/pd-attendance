@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app="pdAttendance">
 <head>
   <meta charset="utf-8">  
   <title>PD Attendance</title>
@@ -7,14 +7,23 @@
   <link rel="stylesheet" href="app/css/style.css">
 </head>
 <body>
-  <div class="wrapper">
+
+  <div class="view-wrapper" ui-view>
 
   </div>
+
   <!-- Lumx dependencies -->
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/velocity/velocity.min.js"></script>
   <script src="bower_components/moment/min/moment-with-locales.min.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/lumx/dist/lumx.js"></script>
+  <script src="bower_components/ui-router/release/angular-ui-router.min.js"></script>
+
+  <!-- App Dependencies -->
+  <script src="app/js/app.js"></script>
+  <script src="app/js/controllers/login.js"></script>
+  <script src="app/js/controllers/dashboard.js"></script>
+  <script src="app/js/controllers/statistics.js"></script>
 </body>
 </html>
