@@ -7,7 +7,10 @@
   "description": "UI for PD Attendance",
   "main": "index.html",
   "license": "MIT",
-   "install": {
-    "path": "lib"
+  "install": {
+    "path": "libs"
+  },
+  "dependencies": {
+    "lumx": "~0.3.40"
   }
 }
