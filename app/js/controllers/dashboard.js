@@ -1,5 +1,7 @@
 "use strict";
 
-app.controller(['DashboardController', '$rootScope', '$scope', function($rootScope, $scope){
+var appCtrl = angular.module('pdAttendance.controllers');
+
+appCtrl.controller('DashboardController', ['$rootScope', '$scope', function($rootScope, $scope){
 
 }]);

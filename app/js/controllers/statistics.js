@@ -1,5 +1,5 @@
 "use strict";
 
-app.controller(['StatisticsController', '$rootScope', '$scope', function($rootScope, $scope){
+appCtrl.controller('StatisticsController', ['$rootScope', '$scope', function($rootScope, $scope){
 
 }]);
