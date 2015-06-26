@@ -5,13 +5,13 @@ directive.directive('pdGroup', function(){
     restrict: 'E',
     replace: true,
     templateUrl: 'app/js/templates/pd_group.html',
-    controller : function($scope){
-      
+    controller: ['$scope', function($scope){
+
       $scope.deleteGroup = function(groupid){
         console.log(groupid);
       };
-
-    }
+      
+    }] 
   }
 });
 
