@@ -5,12 +5,15 @@ directive.directive('pdGroup', function(){
     restrict: 'E',
     replace: true,
     templateUrl: 'app/js/templates/pd_group.html',
-    controller: ['$scope', function($scope){
+    controller: ['$scope', 'LxNotificationService', 'group', 
+    function($scope, LxNotificationService, group){
 
-      $scope.deleteGroup = function(groupid){
-        console.log(groupid);
+      $scope.deleteGroup = function(){
+        LxNotificationService.confirm('Delete ' + $scope.pdgroup.name + ' PD group?' , 'This action cannot be undone, click yes if you still want to continue', { cancel:'Yes delete', ok:'Not today' }, function(answer){
+            !answer ? group.delete($scope.pdgroup.$id) : console.log('cancel');
+        });
       };
-      
+
     }] 
   }
 });
