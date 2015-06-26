@@ -8,6 +8,12 @@ appServices.factory('group', ['$firebaseArray', '$firebaseObject', 'Refs',
         Refs.groups.push(name, function(err){
           cb(err);
         });
+      },
+
+      all: function(cb){
+        Refs.groups.once('value', function(snap){
+          cb(snap.val());
+        });
       }
 
     }
