@@ -1,10 +1,12 @@
 "use strict";
 
 var app = angular.module('pdAttendance',[
+  'ngCookies',
   'lumx',
   'ui.router',
   'pdAttendance.controllers',
-  'pdAttendance.services'
+  'pdAttendance.services',
+  'firebase'
   ]);
 
 var viewsDir = "app/js/views/";

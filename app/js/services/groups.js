@@ -1,10 +1,14 @@
 "use strict";
 
-appServices.factory('Groups', ['$firebaseArray', '$firebaseObject', 
-  function($firebaseArray, $firebaseObject){
+appServices.factory('group', ['$firebaseArray', '$firebaseObject', 'Refs',
+  function($firebaseArray, $firebaseObject, Refs){
     return{
 
-      all: function(){}
+      create: function(name, cb){
+        Refs.groups.push(name, function(err){
+          cb(err);
+        });
+      }
 
     }
 

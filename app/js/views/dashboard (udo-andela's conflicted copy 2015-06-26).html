@@ -164,8 +164,8 @@
       </span>
 
       <div class="toolbar__right">
-        <button class="btn btn--l btn--white btn--icon" lx-dialog-close>
-          <i class="mdi mdi-close"></i>
+        <button class="btn btn--l btn--white btn--icon" lx-ripple lx-dialog-close>
+          <i class="mdi mdi-close-box-outline"></i>
         </button>
       </div>
     </div>
@@ -176,8 +176,8 @@
     <div flex-container="row">
       <div flex-item="9" class="pl++">
     
-        <lx-text-field label="Group name">
-        <textarea required="true" ng-trim="true" ng-model="groupName"></textarea>
+        <lx-text-field label="new group's name">
+        <textarea ng-model="groupName"></textarea>
       </lx-text-field>
     </div>
   </div>
@@ -185,7 +185,7 @@
 </div>
 
 <div class="dialog__actions">
-  <button class="btn btn--m btn--black btn--flat" lx-ripple>create</button>
+  <button class="btn btn--m btn--black btn--flat" ng-click="createGroup()" lx-ripple>create</button>
 </div>
 </lx-dialog>
 <!-- end of dialog -->

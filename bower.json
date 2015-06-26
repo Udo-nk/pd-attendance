@@ -14,6 +14,7 @@
     "lumx": "~0.3.40",
     "ui-router": "~0.2.15",
     "firebase": "~2.2.7",
-    "angularfire": "~1.1.2"
+    "angularfire": "~1.1.2",
+    "angular-cookies": "~1.4.1"
   }
 }
