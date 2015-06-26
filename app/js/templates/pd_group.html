@@ -17,7 +17,7 @@
 
         <div class="card__actions">
           <div class="fab" style="float:right;">
-            <button class="fab__primary btn btn--xl btn--black bgc-white tc-blue-grey-700 btn--fab" lx-ripple lx-tooltip="add a fellow" tooltip-position="top">
+            <button ng-click="showFellowsDialog()" class="fab__primary btn btn--xl btn--black bgc-white tc-blue-grey-700 btn--fab" lx-ripple lx-tooltip="add a fellow" tooltip-position="top">
               <i class="mdi mdi-settings"></i>
               <i class="mdi mdi-account-plus"></i>
             </button>
@@ -33,11 +33,64 @@
     </div>
   </div>
 
+  <!-- Add Fellow Dialog -->
+  <lx-dialog class="dialog dialog--m" id="list-{{ pdgroup.$id }}" auto-close="true" onclose="closingDialog()" onscrollend="scrollEndDialog()">
+  <div class="dialog__header">
+    <div class="toolbar bgc-blue-grey-700 pl++">
+      <span class="toolbar__label tc-white fs-title">
+         Add a fellow to {{ pdgroup.name }} Group
+      </span>
 
-  <!-- New Group Dialog -->
+      <div class="toolbar__right">
+        <button class="btn btn--l btn--white btn--icon" lx-dialog-close>
+          <i class="mdi mdi-close"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="dialog__content">
+
+    <div flex-container="row">
+      <div flex-item="9" class="pl++">
+
+      <ul class="list mt++">
+            <li class="list-row">
+                <div class="list-row__content">
+                    <span class="display-block">Two-line item</span>
+                    <span class="display-block fs-body-1 tc-black-2">Secondary text</span>
+                </div>
+            </li>
+            <li class="list-row">
+                <div class="list-row__content">
+                    <span class="display-block">Two-line item</span>
+                    <span class="display-block fs-body-1 tc-black-2">Secondary text</span>
+                </div>
+            </li>
+            <li class="list-row">
+                <div class="list-row__content">
+                    <span class="display-block">Two-line item</span>
+                    <span class="display-block fs-body-1 tc-black-2">Secondary text</span>
+                </div>
+            </li>
+            </ul>
+
+       
+    </div>
+  </div>
+
+</div>
+
+<div class="dialog__actions">
+  <!-- <button class="btn btn--m btn--black btn--flat" ng-click="rename(newGroupName)" lx-ripple>save</button> -->
+</div>
+</lx-dialog>
+
+
+  <!-- Rename Dialog -->
   <lx-dialog class="dialog dialog--m" id="{{ pdgroup.$id }}" auto-close="true" onclose="closingDialog()" onscrollend="scrollEndDialog()">
   <div class="dialog__header">
-    <div class="toolbar bgc-green-500 pl++">
+    <div class="toolbar bgc-blue-grey-700 pl++">
       <span class="toolbar__label tc-white fs-title">
          change name: {{ pdgroup.name | uppercase }}
       </span>
