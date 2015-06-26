@@ -8,4 +8,14 @@ appCtrl.controller('ContainerController', ['$rootScope', '$scope', '$state', '$c
 
    $scope.groups = group.all();
 
+   $scope.groupExists = function(group){
+    var groups = $scope.groups;
+    for(var key in groups){
+      if(groups.hasOwnProperty(key) && groups[key].name == group){
+        return true;
+      }
+    }
+    return false;
+  };
+
 }])
