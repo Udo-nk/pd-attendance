@@ -3,7 +3,8 @@
 var app = angular.module('pdAttendance',[
   'lumx',
   'ui.router',
-  'pdAttendance.controllers'
+  'pdAttendance.controllers',
+  'pdAttendance.services'
   ]);
 
 var viewsDir = "app/js/views/";
