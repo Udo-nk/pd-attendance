@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="">
+    <div class="toolbar bgc-blue-grey-700">
+      <span class="toolbar__label ffs-subhead tc-white-1 display-block">{{ pdgroup.name | uppercase }}</span>
+    </div>
+  </div>
+  <div flex-container="row">
+    <div flex-item flex-container="column">
+      <div flex-item>
+        <div class="p+">
+          <picture class="picture">
+            <img lx-tooltip="user" tooltip-position="bottom" class="avatar" src="https://s3-us-west-2.amazonaws.com/slack-files2/avatars/2015-05-05/4757680749_e820f68d6f8e6af65782_72.jpg">
+          </picture>
+        </div>
+      </div>
+
+      <div class="card__actions">
+        <div class="fab" style="float:right;">
+        <button class="fab__primary btn btn--xl btn--black bgc-white tc-black-1 btn--fab" lx-ripple lx-tooltip="add a fellow" tooltip-position="top">
+            <i class="mdi mdi-settings"></i>
+            <i class="mdi mdi-account-plus"></i>
+        </button>
+
+        <div class="fab__actions fab__actions--left">
+            <button class="btn btn--l btn--red btn--fab" lx-ripple lx-tooltip="delete this group" ng-click="deleteGroup(groupid)" tooltip-position="top"><i class="mdi mdi-delete"></i></button>
+            <button class="btn btn--l tc-white bgc-blue-grey-700 btn--fab" lx-ripple lx-tooltip="change group name" tooltip-position="top"><i class="mdi mdi-pencil"></i></button>
+        </div>
+    </div>
+
+      </div>
+    </div>
+  </div>
+</div>

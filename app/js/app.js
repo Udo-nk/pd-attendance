@@ -6,6 +6,7 @@ var app = angular.module('pdAttendance',[
   'ui.router',
   'pdAttendance.controllers',
   'pdAttendance.services',
+  'pdAttendance.directives',
   'firebase'
   ]);
 
@@ -35,16 +36,6 @@ app.config(function($stateProvider, $urlRouterProvider){
       url: "/admin",
       templateUrl: viewsDir + "container.html",
       controller: "ContainerController"
-    })
-    .state("admin.dashboard", {
-      url: "/dashboard",
-      templateUrl: viewsDir + "dashboard.html",
-      controller: "DashboardController"
-    })
-    .state("admin.statistics", {
-      url: "/statistics",
-      templateUrl: viewsDir + "statistics.html",
-      controller: "StatisticsController"
     });
 
 });

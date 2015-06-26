@@ -9,7 +9,7 @@ appCtrl.controller('LoginController', ['$rootScope', '$scope', 'Authentication',
     Authentication.login(function(err, data){
       if(!err){
         $cookies.putObject('user', Authentication.buildUserObjectFromGoogle(data));
-        $state.go('admin.dashboard');
+        $state.go('admin');
       } else {
         alert('login failed');
       }

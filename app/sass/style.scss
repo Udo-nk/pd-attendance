@@ -149,12 +149,25 @@ $color-clouds: #ecf0f1;
   display: block;
   height: inherit;
   padding:20px;
+  height: 641px;
+  overflow-y: scroll;
+
+  .card {
+    width: 320px !important;
+    float: left;
+    margin:6px;
+    margin-right: 10px;
+
+    .card__actions {
+      border-top: none;
+    }
+  }
 
   #create-group-btn {
     display: inline-block;
     position: absolute;
     bottom: 44px;
-    right: 52px;
+    right: 23px;
   }
 
   .avatar {

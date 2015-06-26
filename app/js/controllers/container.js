@@ -4,28 +4,18 @@ appCtrl.controller('ContainerController', ['$rootScope', '$scope', '$state', '$c
   function($rootScope, $scope, $state, $cookies, LxDialogService, group, LxNotificationService){
    $scope.view = { 'dashboard': true, 'statistics': false };
 
-   $scope.setActive = function(view){
-    var current = $state.current.url.substring(1);
-    $scope.view = {};
-    $scope.view[current] = true;
-   };
-
-   $scope.setActive();
    $scope.user = $cookies.getObject('user');
+
+   $scope.groups = group.all();
 
    $scope.openDialog = function(){
     LxDialogService.open('create-group');
    };
 
-   group.all(function(groups){
-    $scope.pdGroups = groups;
-    console.log($scope.pdGroups);
-   });
-
    var groupExists = function(group){
-    var groups = $scope.pdGroups;
+    var groups = $scope.groups;
     for(var key in groups){
-      if(groups.hasOwnProperty(key) && groups[key] == group){
+      if(groups.hasOwnProperty(key) && groups[key].name == group){
         return true;
       }
     }
