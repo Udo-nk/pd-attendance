@@ -13,19 +13,9 @@ directive.directive('dashboard', function(){
         LxDialogService.open('create-group');
       };
 
-      var groupExists = function(group){
-        var groups = $scope.groups;
-        for(var key in groups){
-          if(groups.hasOwnProperty(key) && groups[key].name == group){
-            return true;
-          }
-        }
-        return false;
-      };
-
       $scope.createGroup = function(name){
         var groupName = name.toLowerCase();
-        if(groupExists(groupName)){
+        if($scope.groupExists(groupName)){
           LxDialogService.close('create-group');
           LxNotificationService.warning("The PD group " + groupName + " already exists");
         }
@@ -66,7 +56,21 @@ directive.directive('pdGroup', function(){
       };
 
       $scope.rename = function(name){
-        group.rename($scope.pdgroup.$id, name);
+        if($scope.groupExists(name)){
+          LxDialogService.close($scope.pdgroup.$id);
+          LxNotificationService.warning("The PD group " + name + " already exists");
+        } else {
+          group.rename($scope.pdgroup.$id, name, function(err){
+            if(err){
+              LxNotificationService.error(err);
+            }
+          });
+          LxDialogService.close($scope.pdgroup.$id);
+        }
+      };
+
+      $scope.addFellowDialog = function(){
+        
       };
 
     }] 
