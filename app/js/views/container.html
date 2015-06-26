@@ -48,38 +48,3 @@
 
     </div>
   </div>
-
-
-  <!-- Dialog -->
-  <lx-dialog class="dialog dialog--s" id="create-group" auto-close="true" onclose="closingDialog()" onscrollend="scrollEndDialog()">
-  <div class="dialog__header">
-    <div class="toolbar bgc-green-500 pl++">
-      <span class="toolbar__label tc-white fs-title">
-        Create New Group
-      </span>
-
-      <div class="toolbar__right">
-        <button class="btn btn--l btn--white btn--icon" lx-dialog-close>
-          <i class="mdi mdi-close"></i>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <div class="dialog__content">
-
-    <div flex-container="row">
-      <div flex-item="9" class="pl++">
-
-        <lx-text-field label="Group name">
-        <textarea required="true" ng-trim="true" ng-model="groupName"></textarea>
-      </lx-text-field>
-    </div>
-  </div>
-
-</div>
-
-<div class="dialog__actions">
-  <button class="btn btn--m btn--black btn--flat" ng-click="createGroup(groupName)" lx-ripple>create</button>
-</div>
-</lx-dialog>
