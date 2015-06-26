@@ -9,6 +9,10 @@ appServices.factory('group', ['$firebaseArray', '$firebaseObject', 'Refs',
         });
       },
 
+      delete: function(groupid){
+        Refs.groups.child(groupid).remove();
+      },
+
       all: function(cb){
         if(!cb) {
           return $firebaseArray(Refs.groups);
