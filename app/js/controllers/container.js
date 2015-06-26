@@ -17,9 +17,9 @@ appCtrl.controller('ContainerController', ['$rootScope', '$scope', '$state', '$c
     LxDialogService.open('create-group');
    };
 
-   $scope.createGroup = function(){
-    if($scope.groupName && $scope.groupName.length > 3){
-      group.create($scope.groupName, function(err){
+   $scope.createGroup = function(groupName){
+    if(groupName.length > 3){
+      group.create(groupName, function(err){
         console.log(err);
       });
     }
