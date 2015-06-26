@@ -9,6 +9,14 @@ appServices.factory('group', ['$firebaseArray', '$firebaseObject', 'Refs',
         });
       },
 
+      rename: function(groupid, name, cb){
+        Refs.groups.child(groupid).update({'name': name}, function(err){
+          if(err){
+            cb(err);
+          }
+        });
+      },
+
       delete: function(groupid){
         Refs.groups.child(groupid).remove();
       },
