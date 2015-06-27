@@ -8,7 +8,8 @@
 libs/
 
 # compiled css files
-app/css/
+# app/css/
+
 
 node_modules
 
