@@ -69,8 +69,8 @@ directive.directive('pdGroup', function(){
         }
       };
 
-      $scope.addFellowDialog = function(){
-        
+      $scope.showFellowsDialog = function(){
+        LxDialogService.open('list-' + $scope.pdgroup.$id);
       };
 
     }] 

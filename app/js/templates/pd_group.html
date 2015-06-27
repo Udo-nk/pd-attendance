@@ -2,7 +2,7 @@
   <div class="card">
     <div class="">
       <div class="toolbar bgc-blue-grey-700">
-        <span class="toolbar__label ffs-subhead tc-white-1 display-block">{{ pdgroup.name | uppercase }}</span>
+        <span class="toolbar__label fs-subhead tc-white-1 display-block">{{ pdgroup.name | uppercase }}</span>
       </div>
     </div>
     <div flex-container="row">
@@ -34,85 +34,86 @@
   </div>
 
   <!-- Add Fellow Dialog -->
-  <lx-dialog class="dialog dialog--m" id="list-{{ pdgroup.$id }}" auto-close="true" onclose="closingDialog()" onscrollend="scrollEndDialog()">
+  <lx-dialog class="dialog dialog--l" id="list-{{ pdgroup.$id }}" auto-close="true" onclose="closingDialog()" onscrollend="scrollEndDialog()">
   <div class="dialog__header">
     <div class="toolbar bgc-blue-grey-700 pl++">
-      <span class="toolbar__label tc-white fs-title">
-         Add a fellow to {{ pdgroup.name }} Group
-      </span>
+      <span class="toolbar__label tc-white fs-subhead">
+       Add a Fellows to {{ pdgroup.name | uppercase }} Group
+     </span>
 
-      <div class="toolbar__right">
-        <button class="btn btn--l btn--white btn--icon" lx-dialog-close>
-          <i class="mdi mdi-close"></i>
-        </button>
-      </div>
+     <div class="toolbar__right">
+      <button class="btn btn--l btn--white btn--icon" lx-dialog-close>
+        <i class="mdi mdi-close"></i>
+      </button>
     </div>
   </div>
+</div>
 
-  <div class="dialog__content">
+<div class="dialog__content">
 
-    <div flex-container="row">
-      <div flex-item="9" class="pl++">
+  <div flex-container="row">
+    <div flex-item="9" class="pl++">
 
       <ul class="list mt++">
-            <li class="list-row">
-                <div class="list-row__content">
-                    <span class="display-block">Two-line item</span>
-                    <span class="display-block fs-body-1 tc-black-2">Secondary text</span>
-                </div>
-            </li>
-            <li class="list-row">
-                <div class="list-row__content">
-                    <span class="display-block">Two-line item</span>
-                    <span class="display-block fs-body-1 tc-black-2">Secondary text</span>
-                </div>
-            </li>
-            <li class="list-row">
-                <div class="list-row__content">
-                    <span class="display-block">Two-line item</span>
-                    <span class="display-block fs-body-1 tc-black-2">Secondary text</span>
-                </div>
-            </li>
-            </ul>
 
-       
+        <li class="list-row">
+          <div class="list-row__primary">
+            <img src="/images/placeholder/1-square.jpg" width="40" height="40" class="img-round">
+          </div>
+
+          <div class="list-row__content">
+            <span class="display-block">Two-line item</span>
+            <span class="display-block fs-body-1 tc-black-2">Secondary text</span>
+          </div>
+
+          <div class="list-row__secondary">
+            <div class="checkbox">
+              <input type="checkbox" id="checkbox1" class="checkbox__input">
+              <label for="checkbox1" class="checkbox__label"> </label>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+
+
     </div>
   </div>
 
 </div>
 
 <div class="dialog__actions">
-  <!-- <button class="btn btn--m btn--black btn--flat" ng-click="rename(newGroupName)" lx-ripple>save</button> -->
+<button class="btn btn--m btn--black btn--flat" ng-click="rename(newGroupName)" lx-ripple>add selected</button>
 </div>
 </lx-dialog>
 
 
-  <!-- Rename Dialog -->
-  <lx-dialog class="dialog dialog--m" id="{{ pdgroup.$id }}" auto-close="true" onclose="closingDialog()" onscrollend="scrollEndDialog()">
-  <div class="dialog__header">
-    <div class="toolbar bgc-blue-grey-700 pl++">
-      <span class="toolbar__label tc-white fs-title">
-         change name: {{ pdgroup.name | uppercase }}
-      </span>
+<!-- Rename Dialog -->
+<lx-dialog class="dialog dialog--m" id="{{ pdgroup.$id }}" auto-close="true" onclose="closingDialog()" onscrollend="scrollEndDialog()">
+<div class="dialog__header">
+  <div class="toolbar bgc-blue-grey-700 pl++">
+    <span class="toolbar__label tc-white fs-subhead">
+     change name: {{ pdgroup.name | uppercase }}
+   </span>
 
-      <div class="toolbar__right">
-        <button class="btn btn--l btn--white btn--icon" lx-dialog-close>
-          <i class="mdi mdi-close"></i>
-        </button>
-      </div>
-    </div>
+   <div class="toolbar__right">
+    <button class="btn btn--l btn--white btn--icon" lx-dialog-close>
+      <i class="mdi mdi-close"></i>
+    </button>
   </div>
+</div>
+</div>
 
-  <div class="dialog__content">
+<div class="dialog__content">
 
-    <div flex-container="row">
-      <div flex-item="9" class="pl++">
+  <div flex-container="row">
+    <div flex-item="9" class="pl++">
 
-        <lx-text-field label="New name">
-        <textarea required="true"  ng-trim="true" ng-model="newGroupName"></textarea>
-      </lx-text-field>
-    </div>
+      <lx-text-field label="New name">
+      <textarea required="true"  ng-trim="true" ng-model="newGroupName"></textarea>
+    </lx-text-field>
   </div>
+</div>
 
 </div>
 
