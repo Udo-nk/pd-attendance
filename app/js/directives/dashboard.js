@@ -5,8 +5,8 @@ directive.directive('dashboard', function(){
     restrict: 'E',
     replace: false,
     templateUrl: 'app/js/views/dashboard.html',
-    controller: ['$scope', 'group', 'LxDialogService', 'LxNotificationService', 
-    function($scope, group, LxDialogService, LxNotificationService){
+    controller: ['$scope', 'group', 'LxDialogService', 'LxNotificationService', 'Fellows',
+    function($scope, group, LxDialogService, LxNotificationService, Fellows){
 
       $scope.openDialog = function(){
         LxDialogService.open('create-group');
@@ -28,7 +28,7 @@ directive.directive('dashboard', function(){
         }
       };
 
-      
+      $scope.fellows = Fellows.all(); // get all fellows 
 
     }]
   };
