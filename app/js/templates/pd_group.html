@@ -9,9 +9,7 @@
       <div flex-item flex-container="column">
         <div flex-item>
           <div class="p+">
-            <picture class="picture">
-              <img lx-tooltip="user" tooltip-position="bottom" class="avatar" src="https://s3-us-west-2.amazonaws.com/slack-files2/avatars/2015-05-05/4757680749_e820f68d6f8e6af65782_72.jpg">
-            </picture>
+          <avatar ng-repeat="person in pdgroup.fellows track by $index"></avatar>
           </div>
         </div>
 
