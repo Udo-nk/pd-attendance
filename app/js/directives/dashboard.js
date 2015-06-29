@@ -61,6 +61,8 @@ directive.directive('dashboard', function(){
           console.log(err);
         });
 
+        LxDialogService.close('fellows-list');
+
       };
 
     }]
