@@ -137,7 +137,7 @@ directive.directive('avatar', function(){
         LxNotificationService.confirm(person.name, details, { cancel:'Remove from group', ok:'cancel' }, function(answer){
             if(!answer){
               var index = $scope.pdgroup.fellows.indexOf(person.$id);
-              delete $scope.pdgroup.fellows[index];
+              $scope.pdgroup.fellows.splice(index, 1);
               group.addFellows($scope.pdgroup.$id, $scope.pdgroup.fellows, function(err){
                 console.log(err);
               });
