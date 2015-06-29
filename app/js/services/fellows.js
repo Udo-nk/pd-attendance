@@ -13,6 +13,11 @@ appServices.factory('Fellows', ['$firebaseArray', '$firebaseObject', 'Refs',
             cb(snap.val());
           });
         }
+      },
+
+      updateGroup: function(groupid, googleid){
+        Refs.fellows.child(googleid).update({'pd_group': groupid});
       }
+
     }
   }]);
