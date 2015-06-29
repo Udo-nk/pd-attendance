@@ -10,7 +10,6 @@ appServices.factory('group', ['$firebaseArray', '$firebaseObject', 'Refs',
       },
 
       addFellows: function(groupid, fellows, cb){
-        console.log(arguments);
         Refs.groups.child(groupid).child('fellows').set(fellows, function(err){
           if(err && cb){
             cb(err);
