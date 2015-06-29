@@ -53,6 +53,9 @@ directive.directive('dashboard', function(){
         }
 
         //Update all selected fellows
+        allFellows.forEach(function(fellow){
+          Fellows.updateGroup($scope.currentGroup.$id, fellow);
+        });
 
         group.addFellows($scope.currentGroup.$id, allFellows, function(err){
           console.log(err);
