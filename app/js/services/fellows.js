@@ -15,6 +15,17 @@ appServices.factory('Fellows', ['$firebaseArray', '$firebaseObject', 'Refs',
         }
       },
 
+      find: function(googleid, cb){
+        if(!cb) {
+          return $firebaseArray(Refs.fellows.child(googleid));
+        }
+        else {
+          Refs.fellows.child(googleid).on('value', function(snap) {
+            cb(snap.val());
+          });
+        }
+      },
+
       updateGroup: function(groupid, googleid){
         Refs.fellows.child(googleid).update({'pd_group': groupid});
       }
