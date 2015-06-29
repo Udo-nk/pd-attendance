@@ -10,7 +10,7 @@ appServices.factory('group', ['$firebaseArray', '$firebaseObject', 'Refs',
       },
 
       addFellows: function(groupid, fellows, cb){
-        Refs.groups.child(groupid).child('fellows').update(fellows, function(err){
+        Refs.groups.child(groupid).child('fellows').set(fellows, function(err){
           if(err && cb){
             cb(err);
           }
@@ -25,7 +25,7 @@ appServices.factory('group', ['$firebaseArray', '$firebaseObject', 'Refs',
         });
       },
 
-      delete: function(groupid){
+      remove: function(groupid){
         Refs.groups.child(groupid).remove();
       },
 
