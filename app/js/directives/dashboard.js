@@ -8,7 +8,6 @@ directive.directive('dashboard', function(){
     controller: ['$scope', 'group', 'LxDialogService', 'LxNotificationService', 
     function($scope, group, LxDialogService, LxNotificationService){
 
-
       $scope.openDialog = function(){
         LxDialogService.open('create-group');
       };
@@ -28,6 +27,8 @@ directive.directive('dashboard', function(){
           });
         }
       };
+
+      
 
     }]
   };
