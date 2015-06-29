@@ -13,7 +13,7 @@
   <div class="dialog__header">
     <div class="toolbar bgc-blue-grey-700 pl++">
       <span class="toolbar__label tc-white fs-subhead">
-       Add a Fellows to {{ pdgroup.name | uppercase }} Group
+       Add a Fellows to {{ currentGroup.name | uppercase }} Group
      </span>
 
      <div class="toolbar__right">
@@ -51,7 +51,7 @@
 
         <div class="list-row__secondary">
           <div class="checkbox">
-            <input type="checkbox" ng-model="fellow.$id" ng-change="onSelect(fellow)" id="{{ fellow.$id }}" class="checkbox__input">
+          <input type="checkbox" ng-model="eachFellow[fellow.$id]" ng-change="onSelect(fellow)" id="{{ fellow.$id }}" class="checkbox__input">
             <label for="{{ fellow.$id }}" class="checkbox__label"> </label>
           </div>
         </div>
