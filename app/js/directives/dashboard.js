@@ -124,12 +124,28 @@ directive.directive('pdGroup', function(){
 directive.directive('avatar', function(){
   return{
     restrict: 'E',
-    replace: true,
+    replace: false,
     templateUrl: 'app/js/templates/avatar.html',
-    controller: ['$rootScope', '$scope', 'Fellows', function($rootScope, $scope, Fellows){
+    controller: ['$rootScope', '$scope', 'Fellows', 'LxNotificationService', 'group',
+    function($rootScope, $scope, Fellows, LxNotificationService, group){
       $scope.fellows.$loaded().then(function(){
         $scope.each = $rootScope.allFellows[$scope.person];
       });
+
+      $scope.popup = function(person){
+        var details = person.cohort.name + ' | ' + person.level;
+        LxNotificationService.confirm(person.name, details, { cancel:'Remove from group', ok:'cancel' }, function(answer){
+            if(!answer){
+              var index = $scope.pdgroup.fellows.indexOf(person.$id);
+              delete $scope.pdgroup.fellows[index];
+              group.addFellows($scope.pdgroup.$id, $scope.pdgroup.fellows, function(err){
+                console.log(err);
+              });
+              Fellows.removeFromGroup(person.$id);
+            }
+        });
+      };
+
     }]
   };
 }); 

@@ -10,6 +10,7 @@ appServices.factory('group', ['$firebaseArray', '$firebaseObject', 'Refs',
       },
 
       addFellows: function(groupid, fellows, cb){
+        console.log(arguments);
         Refs.groups.child(groupid).child('fellows').set(fellows, function(err){
           if(err && cb){
             cb(err);
@@ -19,9 +20,7 @@ appServices.factory('group', ['$firebaseArray', '$firebaseObject', 'Refs',
 
       rename: function(groupid, name, cb){
         Refs.groups.child(groupid).update({'name': name}, function(err){
-          if(err){
-            cb(err);
-          }
+          cb(err);
         });
       },
 

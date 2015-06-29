@@ -32,20 +32,20 @@
   </div>
 
 
-<!-- Rename Dialog -->
-<lx-dialog class="dialog dialog--m" id="{{ pdgroup.$id }}" auto-close="true" onclose="closingDialog()" onscrollend="scrollEndDialog()">
-<div class="dialog__header">
-  <div class="toolbar bgc-blue-grey-700 pl++">
-    <span class="toolbar__label tc-white fs-subhead">
-     change name: {{ pdgroup.name | uppercase }}
-   </span>
+  <!-- Rename Dialog -->
+  <lx-dialog class="dialog dialog--m" id="{{ pdgroup.$id }}" auto-close="true" onclose="closingDialog()" onscrollend="scrollEndDialog()">
+  <div class="dialog__header">
+    <div class="toolbar bgc-blue-grey-700 pl++">
+      <span class="toolbar__label tc-white fs-subhead">
+       change name: {{ pdgroup.name | uppercase }}
+     </span>
 
-   <div class="toolbar__right">
-    <button class="btn btn--l btn--white btn--icon" lx-dialog-close>
-      <i class="mdi mdi-close"></i>
-    </button>
+     <div class="toolbar__right">
+      <button class="btn btn--l btn--white btn--icon" lx-dialog-close>
+        <i class="mdi mdi-close"></i>
+      </button>
+    </div>
   </div>
-</div>
 </div>
 
 <div class="dialog__content">
