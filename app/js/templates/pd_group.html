@@ -56,20 +56,20 @@
 
       <ul class="list mt++">
 
-        <li class="list-row">
+        <li class="list-row" ng-repeat="(googleid, fellow) in fellows" ng-if="!fellow.pd_group">
           <div class="list-row__primary">
-            <img src="/images/placeholder/1-square.jpg" width="40" height="40" class="img-round">
+            <img src="{{ fellow.picture }}" width="40" height="40" class="img-round">
           </div>
 
           <div class="list-row__content">
-            <span class="display-block">Fellows Name</span>
-            <span class="display-block fs-body-1 tc-black-2">Fellows class</span>
+            <span class="display-block">{{ fellow.name }}</span>
+            <span class="display-block fs-body-1 tc-black-2">{{ fellow.cohort.name }}</span>
           </div>
 
           <div class="list-row__secondary">
             <div class="checkbox">
-              <input type="checkbox" id="checkbox1" class="checkbox__input">
-              <label for="checkbox1" class="checkbox__label"> </label>
+              <input type="checkbox" id="{{ googleid }}" class="checkbox__input">
+              <label for="{{ googleid }}" class="checkbox__label"> </label>
             </div>
           </div>
         </li>
