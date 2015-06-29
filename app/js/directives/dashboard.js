@@ -70,7 +70,6 @@ directive.directive('dashboard', function(){
   };
 });
 
-
 directive.directive('pdGroup', function(){
   return {
     restrict: 'E',
@@ -110,6 +109,15 @@ directive.directive('pdGroup', function(){
   }
 });
 
-
-
-
+directive.directive('avatar', function(){
+  return{
+    restrict: 'E',
+    replace: true,
+    templateUrl: 'app/js/templates/avatar.html',
+    controller: ['$scope', 'Fellows', function($scope, Fellows){
+      Fellows.find($scope.person, function(data){
+        $scope.each = data;
+      });
+    }]
+  };
+}); 
