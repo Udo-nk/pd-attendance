@@ -31,7 +31,15 @@ directive.directive('dashboard', function(){
       };
 
       $scope.showFellowsDialog = function(pdgroup){
-        LxDialogService.open('fellows-list');
+        $scope.eachFellow = {}; //reset checkboxes
+        $scope.searchFellowsList = ''; // reset search box
+         LxDialogService.open('fellows-list');
+        $scope.currentGroup = pdgroup;
+      };
+
+
+      $scope.addToGroup = function(){
+
       };
 
     }]
