@@ -1,3 +1,4 @@
+"use strict";
 
 appServices.factory('Authentication', ['$rootScope', 'Refs',
     function($rootScope, Refs) {
