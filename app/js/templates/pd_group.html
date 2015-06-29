@@ -17,7 +17,7 @@
 
         <div class="card__actions">
           <div class="fab" style="float:right;">
-            <button ng-click="showFellowsDialog()" class="fab__primary btn btn--xl btn--black bgc-white tc-blue-grey-700 btn--fab" lx-ripple lx-tooltip="add a fellow" tooltip-position="top">
+            <button ng-click="showFellowsDialog(pdgroup)" class="fab__primary btn btn--xl btn--black bgc-white tc-blue-grey-700 btn--fab" lx-ripple lx-tooltip="add a fellow" tooltip-position="top">
               <i class="mdi mdi-settings"></i>
               <i class="mdi mdi-account-plus"></i>
             </button>
@@ -32,68 +32,6 @@
       </div>
     </div>
   </div>
-
-  <!-- Add Fellow Dialog -->
-  <lx-dialog class="dialog dialog--l" id="list-{{ pdgroup.$id }}" auto-close="true" onclose="closingDialog()" onscrollend="scrollEndDialog()">
-  <div class="dialog__header">
-    <div class="toolbar bgc-blue-grey-700 pl++">
-      <span class="toolbar__label tc-white fs-subhead">
-       Add a Fellows to {{ pdgroup.name | uppercase }} Group
-     </span>
-
-     <div class="toolbar__right">
-      <button class="btn btn--l btn--white btn--icon" lx-dialog-close>
-        <i class="mdi mdi-close"></i>
-      </button>
-    </div>
-  </div>
-</div>
-
-<div class="dialog__content">
-
-  <div flex-container="row">
-    <div flex-item="9" class="pl++">
-
-    <div flex-container="row">
-    <div flex-item>
-        <lx-text-field label="search fellows">
-            <input type="text" ng-model="searchFellowsList">
-        </lx-text-field>
-    </div>
-</div>
-
-      <ul class="list mt++">
-
-        <li class="list-row" ng-repeat="(googleid, fellow) in fellows | filter:searchFellowsList" ng-if="!fellow.pd_group">
-          <div class="list-row__primary">
-            <img src="{{ fellow.picture }}" width="40" height="40" class="img-round">
-          </div>
-
-          <div class="list-row__content">
-            <span class="display-block">{{ fellow.name }}</span>
-            <span class="display-block fs-body-1 tc-black-2">{{ fellow.cohort.name }}</span>
-          </div>
-
-          <div class="list-row__secondary">
-            <div class="checkbox">
-              <input type="checkbox" id="{{ googleid }}" class="checkbox__input">
-              <label for="{{ googleid }}" class="checkbox__label"> </label>
-            </div>
-          </div>
-        </li>
-
-      </ul>
-
-
-    </div>
-  </div>
-
-</div>
-
-<div class="dialog__actions">
-<button class="btn btn--m btn--black btn--flat" ng-click="rename(newGroupName)" lx-ripple>add selected</button>
-</div>
-</lx-dialog>
 
 
 <!-- Rename Dialog -->
