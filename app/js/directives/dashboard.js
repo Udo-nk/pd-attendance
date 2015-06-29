@@ -8,6 +8,8 @@ directive.directive('dashboard', function(){
     controller: ['$scope', 'group', 'LxDialogService', 'LxNotificationService', 'Fellows',
     function($scope, group, LxDialogService, LxNotificationService, Fellows){
 
+      $scope.fellows = Fellows.all(); // get all fellows 
+
       $scope.openDialog = function(){
         LxDialogService.open('create-group');
       };
@@ -28,7 +30,9 @@ directive.directive('dashboard', function(){
         }
       };
 
-      $scope.fellows = Fellows.all(); // get all fellows 
+      $scope.showFellowsDialog = function(pdgroup){
+        LxDialogService.open('fellows-list');
+      };
 
     }]
   };
@@ -40,8 +44,8 @@ directive.directive('pdGroup', function(){
     restrict: 'E',
     replace: true,
     templateUrl: 'app/js/templates/pd_group.html',
-    controller: ['$scope', 'LxNotificationService', 'group', 'LxDialogService',
-    function($scope, LxNotificationService, group, LxDialogService){
+    controller: ['$rootScope', '$scope', 'LxNotificationService', 'group', 'LxDialogService',
+    function($rootScope, $scope, LxNotificationService, group, LxDialogService){
 
       $scope.deleteGroup = function(){
         LxNotificationService.confirm('Delete ' + $scope.pdgroup.name.toUpperCase() + ' PD group?' , 'This action cannot be undone, do you still want to continue?', { cancel:'Yes delete', ok:'Not today' }, function(answer){
@@ -68,10 +72,6 @@ directive.directive('pdGroup', function(){
           });
           LxDialogService.close($scope.pdgroup.$id);
         }
-      };
-
-      $scope.showFellowsDialog = function(){
-        LxDialogService.open('list-' + $scope.pdgroup.$id);
       };
 
     }] 
