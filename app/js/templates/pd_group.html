@@ -54,9 +54,17 @@
   <div flex-container="row">
     <div flex-item="9" class="pl++">
 
+    <div flex-container="row">
+    <div flex-item>
+        <lx-text-field label="search fellows">
+            <input type="text" ng-model="searchFellowsList">
+        </lx-text-field>
+    </div>
+</div>
+
       <ul class="list mt++">
 
-        <li class="list-row" ng-repeat="(googleid, fellow) in fellows" ng-if="!fellow.pd_group">
+        <li class="list-row" ng-repeat="(googleid, fellow) in fellows | filter:searchFellowsList" ng-if="!fellow.pd_group">
           <div class="list-row__primary">
             <img src="{{ fellow.picture }}" width="40" height="40" class="img-round">
           </div>
