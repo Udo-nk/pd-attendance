@@ -7,36 +7,96 @@
       <i class="mdi mdi-account-multiple-plus"></i>
     </button>
   </div>
-</div>
-</div>
 
-
-  <!-- New Group Dialog -->
-  <lx-dialog class="dialog dialog--s" id="create-group" auto-close="true" onclose="closingDialog()" onscrollend="scrollEndDialog()">
+  <!-- Add Fellow Dialog -->
+  <lx-dialog class="dialog dialog--l" id="fellows-list" auto-close="true" onclose="closingDialog()" onscrollend="scrollEndDialog()">
   <div class="dialog__header">
-    <div class="toolbar bgc-green-500 pl++">
-      <span class="toolbar__label tc-white fs-title">
-        Create New Group
-      </span>
+    <div class="toolbar bgc-blue-grey-700 pl++">
+      <span class="toolbar__label tc-white fs-subhead">
+       Add a Fellows to {{ pdgroup.name | uppercase }} Group
+     </span>
 
-      <div class="toolbar__right">
-        <button class="btn btn--l btn--white btn--icon" lx-dialog-close>
-          <i class="mdi mdi-close"></i>
-        </button>
+     <div class="toolbar__right">
+      <button class="btn btn--l btn--white btn--icon" lx-dialog-close>
+        <i class="mdi mdi-close"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="dialog__content">
+
+  <div flex-container="row">
+    <div flex-item="9" class="pl++">
+
+      <div flex-container="row">
+        <div flex-item>
+          <lx-text-field label="search fellows">
+          <input type="text" ng-model="searchFellowsList">
+        </lx-text-field>
       </div>
     </div>
+
+    <ul class="list mt++">
+
+      <li class="list-row" ng-repeat="fellow in fellows | filter:searchFellowsList" ng-if="!fellow.pd_group">
+        <div class="list-row__primary">
+          <img src="{{ fellow.picture }}" width="40" height="40" class="img-round">
+        </div>
+
+        <div class="list-row__content">
+          <span class="display-block">{{ fellow.name }}</span>
+          <span class="display-block fs-body-1 tc-black-2">{{ fellow.cohort.name }}</span>
+        </div>
+
+        <div class="list-row__secondary">
+          <div class="checkbox">
+            <input type="checkbox" ng-model="fellow.$id" ng-change="onSelect(fellow)" id="{{ fellow.$id }}" class="checkbox__input">
+            <label for="{{ fellow.$id }}" class="checkbox__label"> </label>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+
+
   </div>
+</div>
 
-  <div class="dialog__content">
+</div>
 
-    <div flex-container="row">
-      <div flex-item="9" class="pl++">
+<div class="dialog__actions">
+  <button class="btn btn--m btn--black btn--flat" ng-click="addToGroup()" lx-ripple>add selected</button>
+</div>
+</lx-dialog>
 
-        <lx-text-field label="Group name">
-        <textarea required="true" ng-trim="true" ng-model="groupName"></textarea>
-      </lx-text-field>
+
+<!-- New Group Dialog -->
+<lx-dialog class="dialog dialog--s" id="create-group" auto-close="true" onclose="closingDialog()" onscrollend="scrollEndDialog()">
+<div class="dialog__header">
+  <div class="toolbar bgc-green-500 pl++">
+    <span class="toolbar__label tc-white fs-title">
+      Create New Group
+    </span>
+
+    <div class="toolbar__right">
+      <button class="btn btn--l btn--white btn--icon" lx-dialog-close>
+        <i class="mdi mdi-close"></i>
+      </button>
     </div>
   </div>
+</div>
+
+<div class="dialog__content">
+
+  <div flex-container="row">
+    <div flex-item="9" class="pl++">
+
+      <lx-text-field label="Group name">
+      <textarea required="true" ng-trim="true" ng-model="groupName"></textarea>
+    </lx-text-field>
+  </div>
+</div>
 
 </div>
 
@@ -44,3 +104,9 @@
   <button class="btn btn--m btn--black btn--flat" ng-click="createGroup(groupName)" lx-ripple>create</button>
 </div>
 </lx-dialog>
+
+
+
+</div>
+
+
