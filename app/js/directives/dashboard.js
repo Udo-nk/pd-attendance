@@ -39,7 +39,15 @@ directive.directive('dashboard', function(){
 
 
       $scope.addToGroup = function(){
+        var fellows = [];
+        for(var key in $scope.eachFellow){
+          if($scope.eachFellow.hasOwnProperty(key) && key){
+            fellows.push(key);
+          }
+        }
 
+        console.log(fellows);
+        console.log($scope.currentGroup.$id);
       };
 
     }]
