@@ -5,10 +5,17 @@ directive.directive('dashboard', function(){
     restrict: 'E',
     replace: false,
     templateUrl: 'app/js/views/dashboard.html',
-    controller: ['$scope', 'group', 'LxDialogService', 'LxNotificationService', 'Fellows',
-    function($scope, group, LxDialogService, LxNotificationService, Fellows){
+    controller: ['$rootScope', '$scope', 'group', 'LxDialogService', 'LxNotificationService', 'Fellows',
+    function($rootScope, $scope, group, LxDialogService, LxNotificationService, Fellows){
 
       $scope.fellows = Fellows.all(); // get all fellows 
+      $rootScope.allFellows = {};
+
+      $scope.fellows.$loaded().then(function(){
+        $scope.fellows.forEach(function(data){
+          $rootScope.allFellows[data.$id] = data;
+        });
+      });
 
       $scope.openDialog = function(){
         LxDialogService.open('create-group');
@@ -54,7 +61,7 @@ directive.directive('dashboard', function(){
 
         //Update all selected fellows
         allFellows.forEach(function(fellow){
-          Fellows.updateGroup($scope.currentGroup.$id, fellow);
+          Fellows.addToGroup($scope.currentGroup.$id, fellow);
         });
 
         group.addFellows($scope.currentGroup.$id, allFellows, function(err){
@@ -75,13 +82,18 @@ directive.directive('pdGroup', function(){
     restrict: 'E',
     replace: true,
     templateUrl: 'app/js/templates/pd_group.html',
-    controller: ['$rootScope', '$scope', 'LxNotificationService', 'group', 'LxDialogService',
-    function($rootScope, $scope, LxNotificationService, group, LxDialogService){
+    controller: ['$rootScope', '$scope', 'LxNotificationService', 'group', 'LxDialogService', 'Fellows',
+    function($rootScope, $scope, LxNotificationService, group, LxDialogService, Fellows){
 
       $scope.deleteGroup = function(){
         LxNotificationService.confirm('Delete ' + $scope.pdgroup.name.toUpperCase() + ' PD group?' , 'This action cannot be undone, do you still want to continue?', { cancel:'Yes delete', ok:'Not today' }, function(answer){
           if(!answer){
-            group.delete($scope.pdgroup.$id);
+            if($scope.pdgroup.fellows){
+              $scope.pdgroup.fellows.forEach(function(person){
+                Fellows.removeFromGroup(person); // remove group from fellows ref
+              });
+            } 
+            group.remove($scope.pdgroup.$id);
             LxNotificationService.success($scope.pdgroup.name.toUpperCase() + " PD group has been deleted");
           }
         });
@@ -114,9 +126,9 @@ directive.directive('avatar', function(){
     restrict: 'E',
     replace: true,
     templateUrl: 'app/js/templates/avatar.html',
-    controller: ['$scope', 'Fellows', function($scope, Fellows){
-      Fellows.find($scope.person, function(data){
-        $scope.each = data;
+    controller: ['$rootScope', '$scope', 'Fellows', function($rootScope, $scope, Fellows){
+      $scope.fellows.$loaded().then(function(){
+        $scope.each = $rootScope.allFellows[$scope.person];
       });
     }]
   };
