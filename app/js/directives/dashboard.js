@@ -10,7 +10,7 @@ directive.directive('dashboard', function(){
 
       $scope.fellows = Fellows.all(); // get all fellows 
       $rootScope.allFellows = {};
-
+      
       $scope.fellows.$loaded().then(function(){
         $scope.fellows.forEach(function(data){
           $rootScope.allFellows[data.$id] = data;
