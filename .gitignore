@@ -4,9 +4,6 @@
 # bower components
  bower_components/
 
-# bower lib
-libs/
-
 # compiled css files
 # app/css/
 
