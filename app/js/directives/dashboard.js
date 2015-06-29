@@ -62,6 +62,7 @@ directive.directive('dashboard', function(){
         });
 
         LxDialogService.close('fellows-list');
+        LxNotificationService.success("PD group " + $scope.currentGroup.name + " has been updated");
 
       };
 
