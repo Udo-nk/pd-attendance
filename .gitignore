@@ -6,7 +6,11 @@
 
 
 # compiled css files
-app/css/
+# app/css/
+# 
+
+# sass files
+app/sass
 
 
 node_modules
