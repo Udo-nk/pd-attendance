@@ -2,15 +2,11 @@
 .DS_Store
 
 # bower components
- bower_components/
- /bower_components
- bower_components
+bower_components
+bower_components/*
 
 # compiled css files
-# app/css/
+app/css/
 
 
 node_modules
-
-# sass stuff
-.sass-cache/
