@@ -6,6 +6,13 @@ directive.directive('pdGroup', function(){
     controller: ['$rootScope', '$scope', 'LxNotificationService', 'group', 'LxDialogService', 'Fellows',
     function($rootScope, $scope, LxNotificationService, group, LxDialogService, Fellows){
 
+      $scope.dragActive = false;
+
+      $scope.dragToggle = function(){
+        $scope.dragActive = !$scope.dragActive;
+        $scope.$apply();
+      };
+
       $scope.deleteGroup = function(){
         LxNotificationService.confirm('Delete ' + $scope.pdgroup.name.toUpperCase() + ' PD group?' , 'This action cannot be undone, do you still want to continue?', { cancel:'Yes delete', ok:'Not today' }, function(answer){
           if(!answer){

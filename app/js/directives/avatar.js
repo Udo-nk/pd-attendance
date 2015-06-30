@@ -22,16 +22,23 @@ directive.directive('avatar', function(){
           }
         });
       };
-
-      // $scope.doubleClick = function(person){
-      //   LxNotificationService.confirm(person.name, "do you want to make this person the group leader?", { cancel:'Not now', ok:'Yes' }, function(yes){
-      //     if(yes){
-      //       group.setGroupLead($scope.pdgroup.$id, person.$id);
-      //       LxNotificationService.success(person.name + " is now group leader for group " + $scope.pdgroup.name);
-      //     }
-      //   });
-      // };
-
-    }]
+    }],
+    link: function(scope, elem, attr, ctrl){
+      elem.attr("draggable", true);
+      elem.on("dragstart", function(e){
+        scope.dragToggle();
+        e.target.style.opacity = "0.4";
+        e.originalEvent.dataTransfer.setData("fellow", JSON.stringify(scope.each));
+      });
+      elem.on("dragend", function(e){
+        e.target.style.opacity = "1";
+        scope.dragToggle();
+      });
+    }
   };
+
 }); 
+
+
+
+

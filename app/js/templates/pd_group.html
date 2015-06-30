@@ -6,7 +6,7 @@
       </div>
     </div>
     <div flex-container="row">
-      <div flex-item flex-container="column">
+      <div flex-item flex-container="column" ng-class="{'drag-active': dragActive}">
         <div flex-item>
           <div class="p+">
             <avatar ng-repeat="person in pdgroup.fellows"></avatar>
@@ -19,7 +19,7 @@
 
           <div class="fab" style="float:right;">
             <button ng-click="showFellowsDialog(pdgroup)" class="fab__primary btn btn--xl btn--black bgc-white tc-blue-grey-700 btn--fab" lx-ripple lx-tooltip="add a fellow" tooltip-position="top">
-              <i class="mdi mdi-settings"></i>
+              <i class="mdi mdi-plus"></i>
               <i class="mdi mdi-account-plus"></i>
             </button>
 

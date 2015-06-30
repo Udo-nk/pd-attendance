@@ -118,7 +118,7 @@ $color-clouds: #ecf0f1;
             display: inline-block;
             font-size:15px;
             margin-top: -20px;
-            }
+          }
 
           &:hover {
             background-color: #536373;
@@ -182,9 +182,15 @@ $color-clouds: #ecf0f1;
     background-size: cover;
   }
 
-
 }
 
+.group-lead{
+  border:3px solid #FE8200 ;
+}
+
+.drag-active{
+  background-color: #FFCC88;
+}
 
 
 
