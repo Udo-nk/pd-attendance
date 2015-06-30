@@ -17,6 +17,14 @@ appServices.factory('group', ['$firebaseArray', '$firebaseObject', 'Refs',
         });
       },
 
+      setGroupLead: function(groupid, googleid, cb){
+        Refs.groups.child(groupid).update({'group_leader': googleid}, function(err){
+          if(cb){
+            cb(err);
+          }
+        });
+      },
+
       rename: function(groupid, name, cb){
         Refs.groups.child(groupid).update({'name': name}, function(err){
           cb(err);
