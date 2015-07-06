@@ -50,7 +50,6 @@ directive.directive('pdGroup', function(){
         console.log($event);
       };
 
-
     }] 
   }
 });

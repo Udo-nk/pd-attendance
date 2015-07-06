@@ -26,7 +26,7 @@ directive.directive('groupLeader', function(){
       });
 
       elem.on("dragleave", function(e){
-        e.target.style.border = "3px solid #FE8200";
+        e.target.style.border = "";
       });
 
       elem.on("drop", function(e){
