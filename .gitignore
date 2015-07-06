@@ -5,8 +5,4 @@
 bower_components
 bower_components/*
 
-# compiled css files
-app/css/
-
-
 node_modules
