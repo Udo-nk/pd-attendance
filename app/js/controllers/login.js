@@ -2,8 +2,8 @@
 
 var appCtrl = angular.module('pdAttendance.controllers', []);
 
-appCtrl.controller('LoginController', ['$rootScope', '$scope', 'Authentication', '$state', '$cookies',
-  function($rootScope, $scope, Authentication, $state, $cookies){
+appCtrl.controller('LoginController', ['$rootScope', '$scope', 'Authentication', '$state', '$cookies', 'Refs',
+  function($rootScope, $scope, Authentication, $state, $cookies, Refs){
 
   $scope.login = function(){
     Authentication.login(function(err, data){
@@ -15,6 +15,4 @@ appCtrl.controller('LoginController', ['$rootScope', '$scope', 'Authentication',
       }
     });
   };
-
-
 }]);
