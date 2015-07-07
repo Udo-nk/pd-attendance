@@ -2,14 +2,21 @@
 
 var appCtrl = angular.module('pdAttendance.controllers', []);
 
-appCtrl.controller('LoginController', ['$rootScope', '$scope', 'Authentication', '$state', '$cookies', 'Refs',
-  function($rootScope, $scope, Authentication, $state, $cookies, Refs){
+appCtrl.controller('LoginController', ['$rootScope', '$scope', 'Authentication', '$state', '$cookies', 'Refs', 'LxNotificationService',
+  function($rootScope, $scope, Authentication, $state, $cookies, Refs, LxNotificationService){
 
   $scope.login = function(){
     Authentication.login(function(err, data){
       if(!err){
-        $cookies.putObject('user', Authentication.buildUserObjectFromGoogle(data));
-        $state.go('admin');
+        var userObject = Authentication.buildUserObjectFromGoogle(data);
+        Authentication.isAdmin(userObject.email, function(admin){
+          if(admin){
+            $cookies.putObject('user', userObject); 
+            $state.go('admin');
+          } else {
+            LxNotificationService.error('Authorized persons only ¯\\_(ツ)_/¯');
+          }
+        });        
       } else {
         alert('login failed');
       }
