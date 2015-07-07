@@ -8,4 +8,4 @@ bower_components/*
 node_modules
 
 # compiled css
-app/css
+app/css 
