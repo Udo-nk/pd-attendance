@@ -10,32 +10,24 @@ appServices.factory('Authentication', ['$rootScope', 'Refs',
           }, options);
         },
 
-        loginWithRole: function(cb) {
-          var user = $rootScope.currentUser;
-          $.getJSON('/admin?uid=' + user.uid + '&token=' + user.access_token)
-            .success(function(data) {
-              Refs.root.authWithCustomToken(data, cb);
-            })
-            .fail(function(err) {
-              cb(err);
-            });
+        isAdmin: function(usersEmail, cb){
+          Refs.admin.once('value', function(snap){
+            var admins = snap.val();
+            for(var email in admins){
+              if(admins.hasOwnProperty(email)){
+                if(admins[email] == usersEmail){
+                  cb(true);
+                  return true;
+                }
+              }
+            }
+            cb(false);
+          });
         },
 
         logout: function() {
           Refs.root.unauth();
           $rootScope.currentUser = null;
-        },
-
-        auth: function(authData, cb) {
-          if(!authData) {
-            // we're logged out. nothing else to do
-            return cb(null);
-          }
-          var self = this;
-          // construct the user record the way we want it
-          var user = self.buildUserObjectFromGoogle(authData);
-          $rootScope.currentUser = user;
-          return cb(user);
         },
 
         buildUserObjectFromGoogle: function(authData) {

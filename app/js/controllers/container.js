@@ -18,4 +18,8 @@ appCtrl.controller('ContainerController', ['$rootScope', '$scope', '$state', '$c
     return false;
   };
 
+  $scope.logout = function(){
+    $cookies.remove('user');
+    $state.go('login');
+  };
 }])

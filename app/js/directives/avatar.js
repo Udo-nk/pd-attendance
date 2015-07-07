@@ -36,9 +36,4 @@ directive.directive('avatar', function(){
       });
     }
   };
-
 }); 
-
-
-
-

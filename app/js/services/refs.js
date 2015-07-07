@@ -13,5 +13,4 @@ appServices.factory('Refs', [ function(){
       group_leaders: rootRef.child('group_leaders'),
       test_leaders: rootRef.child('test_leaders')
     };
-
 }]);
