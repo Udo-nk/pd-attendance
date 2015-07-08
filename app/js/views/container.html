@@ -1,7 +1,7 @@
 <div class="container-page">
   <div flex-container="row">
 
-    <!-- Sidebar -->
+    <!-- Dashboard -->
     <div flex-item="2" class="sidebar" flex-item-order="2">
       <div class="">
         <div class="user-content">
@@ -26,25 +26,38 @@
         </ul>
       </div>
 
-      <a class="logout" ui-sref="login">logout <i class="mdi mdi-logout"></i></a>
+      <a class="logout" ui-sref="login">Log Out <i class="mdi mdi-logout"></i></a>
     </div>
 
-    <!--  Left Board -->
-    <div flex-item="10" flex-item-order="3">
-      <div class="card">
-        <div class="toolbar">
+    <!--  Main Content -->
+      <div flex-item="10" flex-item-order="3">
 
-          <span class="toolbar__label fs-title tc-grey-800">PD Attendance</span>
+        <!-- Nav -->
+        <div id="nav" class="card">
+          <div class="toolbar">
+            <span class="toolbar__label fs-title tc-grey-800">PD Attendance</span>
+            <div class="toolbar__right">
+              <lx-search-filter ng-model="searchGroups" closed theme="light"></lx-search-filter>
+            </div>
+            <lx-dropdown position="right" from-top>
+                <button class="btn btn--l btn--black btn--icon" lx-ripple lx-dropdown-toggle>
+                    <i class="mdi mdi-menu"></i>
+                </button>
 
-          <div class="toolbar__right">
-            <lx-search-filter ng-model="searchGroups" closed theme="light"></lx-search-filter>
-
+                <lx-dropdown-menu>
+                    <ul class="nav-links">
+                        <li><a class="dropdown-link">About</a></li>
+                        <li><a class="dropdown-link">Contact Us</a></li>
+                        <li class="dropdown-divider"></li>
+                        <li><a class="dropdown-link dropdown-link--is-header">Who are we?</a></li>
+                        <li><a href="http://www.andela.com/" class="dropdown-link" target="_blank">Andela</a></li>
+                    </ul>
+                </lx-dropdown-menu>
+            </lx-dropdown>
           </div>
         </div>
-      </div>
 
-
-      <dashboard></dashboard>
-
+        <!-- Content -->
+        <dashboard></dashboard>
     </div>
   </div>

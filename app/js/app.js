@@ -37,5 +37,4 @@ app.config(function($stateProvider, $urlRouterProvider){
       templateUrl: viewsDir + "container.html",
       controller: "ContainerController"
     });
-
 });

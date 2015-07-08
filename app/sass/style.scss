@@ -1,4 +1,5 @@
-
+@import url(http://fonts.googleapis.com/css?family=Aladin|Advent+Pro:400,600|Norican);
+@import url(http://fonts.googleapis.com/css?family=Dosis);
 @import "../../bower_components/bourbon/app/assets/stylesheets/_bourbon.scss";
 @import "../../bower_components/mdi/scss/materialdesignicons.scss";
 @import "../../bower_components/lumx/dist/scss/_lumx.scss";
@@ -16,23 +17,61 @@
   box-shadow: $arg;
 }
 
-body {
-  font-size: 1.125rem;
-}
+/* Available Fonts from Google */
+$aladin: 'Aladin', cursive;
+$advent: 'Advent Pro', sans-serif;
+$norican: 'Norican', cursive;
+$dosis: 'Dosis', sans-serif;
 
 $avatar-size: 48px;
 $color-clouds: #ecf0f1;
 
-.login-page {
-  text-align: center;
+body {
+  font-size: 1.425rem;
+  font-family: $dosis;
+}
 
+#nav {
+  font-family: $aladin;
+
+  .fs-title {
+    font-size: 1.8em;
+    color: #3C0808;
+  }  
+}
+
+.nav-links a {
+  font-family: $advent;
+  font-size: .65em;
+}
+
+#mid {
+  height: 500px;
+  background: url(../img/pd_login_bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#login {
+  text-align: center;
+  font-family: $advent;
+  
   button {
-    margin-top: 250px;
+    font-size: 1em;
+    margin: 20px auto;
+    text-transform: capitalize;
+  }
+
+  p {
+    font-size: .55em;
+    font-style: italic;
+    color: #db4437;
   }
 }
 
 .container-page {
-
   .header {
     margin-bottom: 5px;
   }
@@ -73,7 +112,7 @@ $color-clouds: #ecf0f1;
     }
 
     .name {
-      font-size: .8rem;
+      font-size: .9rem;
     }
 
     hr {
