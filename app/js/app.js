@@ -17,7 +17,7 @@ var templatesDir = "app/js/templates/";
  * Enable HTML5 mode
  */
 app.config(['$locationProvider', function($locationProvider){
-  //$locationProvider.html5Mode(true);
+  $locationProvider.html5Mode(true);
 }]);
 
 /**
@@ -37,5 +37,4 @@ app.config(function($stateProvider, $urlRouterProvider){
       templateUrl: viewsDir + "container.html",
       controller: "ContainerController"
     });
-
 });

@@ -18,14 +18,14 @@
           <group-leader></group-leader>
 
           <div class="fab" style="float:right;">
-            <button ng-click="showFellowsDialog(pdgroup)" class="fab__primary btn btn--xl btn--black bgc-white tc-blue-grey-700 btn--fab" lx-ripple lx-tooltip="add a fellow" tooltip-position="top">
+            <button ng-click="showFellowsDialog(pdgroup)" class="fab__primary btn btn--xl btn--black bgc-white tc-blue-grey-700 btn--fab" lx-ripple lx-tooltip="Add A Fellow" tooltip-position="top">
               <i class="mdi mdi-plus"></i>
               <i class="mdi mdi-account-plus"></i>
             </button>
 
             <div class="fab__actions fab__actions--left">
-              <button class="btn btn--l btn--red btn--fab" lx-ripple lx-tooltip="delete this group" ng-click="deleteGroup()" tooltip-position="top"><i class="mdi mdi-delete"></i></button>
-              <button class="btn btn--l tc-white bgc-blue-grey-700 btn--fab" lx-ripple lx-tooltip="change group name" ng-click="editGroup()" tooltip-position="top"><i class="mdi mdi-pencil"></i></button>
+              <button class="btn btn--l btn--red btn--fab" lx-ripple lx-tooltip="Delete This Group" ng-click="deleteGroup()" tooltip-position="top"><i class="mdi mdi-delete"></i></button>
+              <button class="btn btn--l tc-white bgc-blue-grey-700 btn--fab" lx-ripple lx-tooltip="Change Group Name" ng-click="editGroup()" tooltip-position="top"><i class="mdi mdi-pencil"></i></button>
             </div>
           </div>
 
@@ -40,7 +40,7 @@
   <div class="dialog__header">
     <div class="toolbar bgc-blue-grey-700 pl++">
       <span class="toolbar__label tc-white fs-subhead">
-       change name: {{ pdgroup.name | uppercase }}
+       Change Name: {{ pdgroup.name | uppercase }}
      </span>
 
      <div class="toolbar__right">
@@ -56,7 +56,7 @@
   <div flex-container="row">
     <div flex-item="9" class="pl++">
 
-      <lx-text-field label="New name">
+      <lx-text-field label="New Name">
       <textarea required="true"  ng-trim="true" ng-model="newGroupName"></textarea>
     </lx-text-field>
   </div>
@@ -65,7 +65,7 @@
 </div>
 
 <div class="dialog__actions">
-  <button class="btn btn--m btn--black btn--flat" ng-click="rename(newGroupName)" lx-ripple>save</button>
+  <button class="btn btn--m btn--black btn--flat" ng-click="rename(newGroupName)" lx-ripple>Save</button>
 </div>
 </lx-dialog>
 </div>
