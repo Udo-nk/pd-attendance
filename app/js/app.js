@@ -32,8 +32,13 @@ app.config(function($stateProvider, $urlRouterProvider){
       templateUrl: viewsDir + "login.html",
       controller: "LoginController"
     })
-    .state("admin", {
-      url: "/admin",
+    .state("dashboard", {
+      url: "/admin/dashboard",
+      templateUrl: viewsDir + "container.html",
+      controller: "ContainerController"
+    })
+    .state("statistics", {
+      url: "/admin/statistics",
       templateUrl: viewsDir + "container.html",
       controller: "ContainerController"
     });

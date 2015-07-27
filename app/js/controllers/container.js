@@ -2,10 +2,8 @@
 
 appCtrl.controller('ContainerController', ['$rootScope', '$scope', '$state', '$cookies','LxDialogService', 'group', 'LxNotificationService',
   function($rootScope, $scope, $state, $cookies, LxDialogService, group, LxNotificationService){
-   $scope.view = { 'dashboard': true, 'statistics': false };
-
    $scope.user = $cookies.getObject('user');
-
+   $scope.$state = $state;
    $scope.groups = group.all();
 
    $scope.groupExists = function(group){

@@ -15,11 +15,11 @@
         <hr>
 
         <ul class="menu">
-          <li><a ng-class="{'active': view.dashboard}">
+          <li><a ui-sref="dashboard" ng-class="{'active': view.dashboard}">
             <i class="mdi mdi-view-dashboard tc-yellow-700"></i>
             <span>Dashboard</span>
           </a></li>
-          <li><a ng-class="{'active': view.statistics}">
+          <li><a ui-sref="statistics" ng-class="{'active': view.statistics}">
             <i class="mdi mdi-chart-histogram tc-light-green-500"></i>
             <span>Statistics</span>
           </a></li>
@@ -59,6 +59,12 @@
         </div>
 
         <!-- Content -->
-        <dashboard></dashboard>
+        <div ng-show="$state.current.name === 'dashboard'">
+          <dashboard></dashboard>
+        </div>
+
+        <div ng-show="$state.current.name === 'statistics'">
+          <statistics></statistics>
+        </div>
     </div>
   </div>
