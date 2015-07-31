@@ -12,7 +12,7 @@ appCtrl.controller('LoginController', ['$rootScope', '$scope', 'Authentication',
         Authentication.isAdmin(userObject.email, function(admin){
           if(admin){
             $cookies.putObject('user', userObject); 
-            $state.go('admin');
+            $state.go('dashboard');
           } else {
             LxNotificationService.error('Authorized persons only ¯\\_(ツ)_/¯');
           }

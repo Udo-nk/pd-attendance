@@ -7,6 +7,7 @@ directive.directive('dashboard', function(){
     templateUrl: 'app/js/views/dashboard.html',
     controller: ['$rootScope', '$scope', 'group', 'LxDialogService', 'LxNotificationService', 'Fellows',
     function($rootScope, $scope, group, LxDialogService, LxNotificationService, Fellows){
+      $scope.view = { 'dashboard': false, 'statistics': true };
 
       $scope.fellows = Fellows.all(); // get all fellows 
       $rootScope.allFellows = {};
