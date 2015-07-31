@@ -9,7 +9,7 @@
       <div flex-item flex-container="column" ng-class="{'drag-active': dragActive}">
         <div flex-item>
           <div class="p+">
-            <avatar ng-repeat="person in pdgroup.fellows"></avatar>
+            <avatar ng-repeat="person in pdgroup.fellows track by $index"></avatar>
           </div>
         </div>
 
