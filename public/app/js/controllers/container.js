@@ -1,10 +1,18 @@
 "use strict";
 
-appCtrl.controller('ContainerController', ['$rootScope', '$scope', '$state', '$cookies','LxDialogService', 'group', 'LxNotificationService',
-  function($rootScope, $scope, $state, $cookies, LxDialogService, group, LxNotificationService){
+appCtrl.controller('ContainerController', ['$rootScope', '$scope', '$state', '$cookies','LxDialogService', 'group', 'LxNotificationService', '$location',
+  function($rootScope, $scope, $state, $cookies, LxDialogService, group, LxNotificationService, $location){
    $scope.user = $cookies.getObject('user');
    $scope.$state = $state;
    $scope.groups = group.all();
+   $scope.activeTab = {};
+
+   $scope.setActiveTab = function() {
+    var path = $location.$$path.split('/');
+    $scope.activeTab[path[2]] = true;
+   };
+
+   $scope.setActiveTab();
 
    $scope.groupExists = function(group){
     var groups = $scope.groups;
