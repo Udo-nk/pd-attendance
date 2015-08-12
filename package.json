@@ -9,7 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
-    "node": "0.12.4"
+    "node": "0.12.4",
+    "npm": "2.12.0"
     },
   "author": "",
   "license": "ISC",
