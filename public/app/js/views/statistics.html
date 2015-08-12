@@ -30,8 +30,11 @@
 				              <td>{{ $index + 1 }}</td>
 				              <td>{{ fellow.slack }}</td>
 				              <td>{{ fellow.code }}</td>
-				              <td>{{ fellow.attended }}</td>
-				              <td>Click to add {{fellow.length}}</td>
+				              <td>
+				                <span ng-show="fellow.attended === true"><i class="icon icon--s icon--green icon--flat mdi mdi-check"></i></span>
+				                <span ng-show="fellow.attended === false"><i class="icon icon--s icon--red icon--flat mdi mdi-close"></i></span>
+				              </td>
+				              <td>Click to add</td>
 				            </tr>
 				        </tbody>
 				      </table>

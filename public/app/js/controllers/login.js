@@ -13,12 +13,13 @@ appCtrl.controller('LoginController', ['$rootScope', '$scope', 'Authentication',
           if(admin){
             $cookies.putObject('user', userObject); 
             $state.go('dashboard');
+            LxNotificationService.success("Hi " + userObject.name + ", This UI interfaces with the PD Bot.");
           } else {
             LxNotificationService.error('Authorized persons only ¯\\_(ツ)_/¯');
           }
         });        
       } else {
-        alert('login failed');
+        LxNotificationService.error('Login failed. Try again...(ツ)');
       }
     });
   };
