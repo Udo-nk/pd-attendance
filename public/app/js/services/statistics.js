@@ -7,6 +7,9 @@ appServices.factory('statistics', ['$firebaseArray', '$firebaseObject', 'Refs',
 			byDate: function(date, cb){
 				var qry = Refs.attendance.child(date);
 				if(!cb){
+					qry.on('value', function(snap) {
+						cb(snap.val());
+					});
 					return $firebaseArray(qry);
 				} else {
 					qry.on('value', function(snap){
@@ -15,7 +18,7 @@ appServices.factory('statistics', ['$firebaseArray', '$firebaseObject', 'Refs',
 				}
 			},
 
-			all: function(){
+			all: function (cb){
 				var qry = Refs.attendance;
 				if(!cb){
 					return $firebaseArray(qry);
@@ -25,6 +28,5 @@ appServices.factory('statistics', ['$firebaseArray', '$firebaseObject', 'Refs',
 					});
 				}
 			}
-			
 		};
 }]);

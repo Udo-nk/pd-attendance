@@ -1,3 +1,55 @@
-<div>
-	<h2>This is the statistics view</h2>
+<div id="stats">
+	<h2 class="text-center">Reports on PD Attendance</h2>
+	
+	<button class="btn btn--l btn--green btn--raised">Select Date</button>
+  <span ng-show=pdDates>
+  	<input type="date" id="dateSelect" name="date-select" min=2015-01-01 ng-change="fetchDateContents()" ng-model="dateContents" required />
+  </span>
+
+	<div class="card">
+    <lx-tabs>
+        <lx-tab heading="Search by Date">
+            <p class="p+">
+            	<table class="data-table">
+				        <thead>
+				            <tr>
+				              <th>S/N</th>
+				              <th>Slack ID</th>
+				              <th>Code</th>
+				              <th class="data-table__sortable-cell data-table__sortable-cell--desc">Attended</th>
+				              <th>
+				                  <i class="mdi mdi-comment-text"></i>
+				                  <span>Comments</span>
+				              </th>
+				            </tr>
+				        </thead>
+
+				        <tbody>
+				            <tr ng-repeat="fellow in allByDate">
+				              <td>{{ $index + 1 }}</td>
+				              <td>{{ fellow.slack }}</td>
+				              <td>{{ fellow.code }}</td>
+				              <td>{{ fellow.attended }}</td>
+				              <td>Click to add {{fellow.length}}</td>
+				            </tr>
+				        </tbody>
+				      </table>
+            </p>
+        </lx-tab>
+
+        <lx-tab heading="Search by Fellows">
+            <p class="p+">Coming soon...</p>
+        </lx-tab>
+
+        <lx-tab heading="Search by PD Groups">
+            <p class="p+">Its very close, wait for it...</p>
+        </lx-tab>
+    </lx-tabs>
+  </div>
+
+  <br />
+  <br />
+  <h4 class="text-center">Generate Monthly Report</h4>
+  <button class="btn btn--l btn--green btn--raised">Select Month</button>
+  <input type="month" />
 </div>
