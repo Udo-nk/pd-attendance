@@ -30,7 +30,9 @@ appServices.factory('group', ['$firebaseArray', '$firebaseObject', 'Refs',
       },
 
       remove: function(groupid){
-        Refs.groups.child(groupid).remove();
+        Refs.groups.child(groupid).update({'active': false}, function(err){
+          cb(err);
+        });
       },
 
       all: function(cb){

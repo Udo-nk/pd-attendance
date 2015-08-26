@@ -14,15 +14,10 @@ directive.directive('pdGroup', function(){
       };
 
       $scope.deleteGroup = function(){
-        LxNotificationService.confirm('Delete ' + $scope.pdgroup.name.toUpperCase() + ' PD group?' , 'This action cannot be undone, do you still want to continue?', { cancel:'Yes delete', ok:'Not today' }, function(answer){
-          if(!answer){
-            if($scope.pdgroup.fellows){
-              $scope.pdgroup.fellows.forEach(function(person){
-                Fellows.removeFromGroup(person); // remove group from fellows ref
-              });
-            } 
+        LxNotificationService.confirm('Archive ' + $scope.pdgroup.name.toUpperCase() + ' PD group?' , 'This will archive the pd group', { cancel:'Yes Archive', ok:'Not today' }, function(answer){
+          if(!answer){ 
             group.remove($scope.pdgroup.$id);
-            LxNotificationService.success($scope.pdgroup.name.toUpperCase() + " PD group has been deleted");
+            LxNotificationService.success($scope.pdgroup.name.toUpperCase() + " PD group has been Archived");
           }
         });
       };
