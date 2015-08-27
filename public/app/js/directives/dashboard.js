@@ -54,10 +54,12 @@ directive.directive('dashboard', function(){
           }
         }
         if($scope.currentGroup.fellows){
-          var allFellows = fellows.concat($scope.currentGroup.fellows);
+          allFellows = fellows.concat($scope.currentGroup.fellows);
         } else {
           allFellows = fellows;
         }
+
+        allFellows = _.uniq(allFellows)
 
         //Update all selected fellows
         allFellows.forEach(function(fellow){

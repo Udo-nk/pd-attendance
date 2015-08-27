@@ -27,7 +27,7 @@ appServices.factory('Fellows', ['$firebaseArray', '$firebaseObject', 'Refs',
       },
 
       addToGroup: function(groupid, googleid){
-        Refs.fellows.child(googleid).update({'pd_group': groupid});
+        // Refs.fellows.child(googleid).update({'pd_group': groupid});
       },
 
       removeFromGroup: function(googleid){
