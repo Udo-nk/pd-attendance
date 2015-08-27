@@ -33,10 +33,10 @@ directive.directive('groupLeader', function(){
         e.target.style.border = "";
         var fellow = JSON.parse(e.originalEvent.dataTransfer.getData("fellow"));
         console.log(fellow);
-        if(scope.pdgroup.$id === fellow.pd_group){
+        // if(scope.pdgroup.$id === fellow.pd_group){
           scope.setGroupLead(scope.pdgroup.$id, fellow.$id);
           scope.lead = fellow;
-        }
+        // }
         e.preventDefault();
       });
     }
