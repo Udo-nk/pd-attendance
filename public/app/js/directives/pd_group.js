@@ -13,11 +13,11 @@ directive.directive('pdGroup', function(){
         $scope.$apply();
       };
 
-      $scope.deleteGroup = function(){
-        LxNotificationService.confirm('Archive ' + $scope.pdgroup.name.toUpperCase() + ' PD group?' , 'This will archive the pd group', { cancel:'Yes Archive', ok:'Not today' }, function(answer){
+      $scope.archiveGroup = function(){
+        LxNotificationService.confirm('Archive ' + $scope.pdgroup.name.toUpperCase() + ' PD group?' , 'This action will archive this group, do you still want to continue?', { cancel:'Yes Archive', ok:'Not today' }, function(answer){
           if(!answer){ 
             group.remove($scope.pdgroup.$id);
-            LxNotificationService.success($scope.pdgroup.name.toUpperCase() + " PD group has been Archived");
+            LxNotificationService.success($scope.pdgroup.name.toUpperCase() + "PD group has been Archived");
           }
         });
       };

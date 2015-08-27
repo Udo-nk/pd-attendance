@@ -4,7 +4,7 @@ appServices.factory('group', ['$firebaseArray', '$firebaseObject', 'Refs',
   function($firebaseArray, $firebaseObject, Refs){
     return{
       create: function(name, cb){
-        Refs.groups.push({'name': name}, function(err){
+        Refs.groups.push({'name': name, 'active': true}, function(err){
           cb(err);
         });
       },
