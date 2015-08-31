@@ -2,7 +2,7 @@
 var appServices = angular.module('pdAttendance.services', []);
 
 appServices.factory('Refs', [ function(){
-    var rootRef = new Firebase('https://pd-attendance-dev.firebaseio.com/');
+    var rootRef = new Firebase('https://pdbot-attendance-dev.firebaseio.com/');
     return {
       root: rootRef,
       groups: rootRef.child('pd_groups'),
