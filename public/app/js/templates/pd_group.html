@@ -1,5 +1,5 @@
 <div>
-  <div class="card" ng-show='pdgroup.active'>
+  <div id="pd-groups" class="card" ng-show='pdgroup.active'>
     <div class="">
       <div class="toolbar bgc-blue-grey-700">
         <span class="toolbar__label fs-subhead tc-white-1 display-block">{{ pdgroup.name | uppercase }}</span>
@@ -8,7 +8,7 @@
     <div flex-container="row">
       <div flex-item flex-container="column" ng-class="{'drag-active': dragActive}">
         <div flex-item>
-          <div class="p+">
+          <div class="group-content p+">
             <avatar ng-repeat="person in pdgroup.fellows track by $index"></avatar>
           </div>
         </div>
