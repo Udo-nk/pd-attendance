@@ -3,12 +3,11 @@ directive.directive('statistics', function(){
     restrict: 'E',
     replace: false,
     templateUrl: 'app/js/views/statistics.html',
-    controller: ['$scope', 'statistics', 'LxDialogService', 'LxNotificationService',
-    function($scope, statistics, LxDialogService, LxNotificationService){
+    controller: ['$scope', 'statistics', 'Fellows', 'LxDialogService', 'LxNotificationService',
+    function($scope, statistics, Fellows, LxDialogService, LxNotificationService){
       $scope.view = { 'dashboard': true, 'statistics': false };
     	$scope.pdDates = statistics.all();
-
-      // Tie group leader change to slack group leaders that codes are sent
+      $scope.allFellows = Fellows.all();
 
       $scope.fetchDateContents = function () {
         var searchValue = $scope.dateContents;
@@ -18,6 +17,13 @@ directive.directive('statistics', function(){
         var formattedDate = "" + Year + Month + Day;
 
     		$scope.allByDate = statistics.byDate(formattedDate);
+      };
+
+      $scope.fellowDetails = function (fellow_id) {
+        $scope.getFellow = Fellows.find(fellow_id, function(data) {
+          $scope.fellow = data;
+          $scope.fellowStartDate = new Date(data.cohort.start_date * 1000);
+        });
       };
     }]
   };

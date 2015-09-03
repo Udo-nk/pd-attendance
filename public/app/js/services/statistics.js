@@ -27,6 +27,13 @@ appServices.factory('statistics', ['$firebaseArray', '$firebaseObject', 'Refs',
 						cb(snap.val());
 					});
 				}
+			},
+
+			byFellow: function (slack_id, cb) {
+				var qry = Refs.attendance;
+				qry.on('value', function(snapshot) {
+					console.log(snapshot.val());
+				});
 			}
 		};
 }]);
