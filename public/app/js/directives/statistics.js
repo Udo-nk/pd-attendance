@@ -23,6 +23,7 @@ directive.directive('statistics', function(){
         $scope.getFellow = Fellows.find(fellow_id, function(data) {
           $scope.fellow = data;
           $scope.fellowStartDate = new Date(data.cohort.start_date * 1000);
+          $scope.attendanceCounts = statistics.byFellow(data.slack_id);
         });
       };
     }]

@@ -30,10 +30,32 @@ appServices.factory('statistics', ['$firebaseArray', '$firebaseObject', 'Refs',
 			},
 
 			byFellow: function (slack_id, cb) {
-				var qry = Refs.attendance;
-				qry.on('value', function(snapshot) {
-					console.log(snapshot.val());
-				});
+				if(!cb) {
+						var qry = Refs.attendance,
+					    timesRegistered = 0,
+					    timesPresent = 0,
+					    timesAbsent = 0,
+					    attendanceCounts = {};
+
+					qry.on('value', function(snapshot) {
+						var val = snapshot.val();
+						_.forEach(val, function(days) {
+							_.forEach(days, function(res) {
+								if(slack_id && res.slack === slack_id.toString()) {
+									if(res.attended === true) {
+										timesPresent++;
+									}
+									else if(res.attended === false) {
+										timesAbsent++;
+									}
+								}
+							});
+						});
+						attendanceCounts.present = timesPresent;
+						attendanceCounts.absent = timesAbsent;
+					});
+					return attendanceCounts;
+				}
 			}
 		};
 }]);
