@@ -1,5 +1,5 @@
 <div class="dashboard-view">
-  <pd-group  ng-repeat="(groupid, pdgroup) in groups | filter:parent.searchGroups"></pd-group>
+  <pd-group  ng-repeat="(groupid, pdgroup) in groups | filter:searchGroups"></pd-group>
   <div class="clearfix"></div>
   <div id="create-group-btn">
     <button ng-click="openDialog()" class="btn btn--xl btn--green btn--fab" lx-ripple lx-tooltip="Create a new group">

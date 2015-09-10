@@ -30,7 +30,12 @@
 						      </div>
 
 						      <ul class="list mt++">
-				            <li ng-repeat="f in allFellows | filter:filterFellows" class="list-row list-row--has-separator">
+						        <li class="sort-fellows">
+						          Sort By
+						          <button class="btn btn--m btn--orange btn--raised" lx-ripple ng-click="sortOrder('name')">Name</button>
+						          <button class="btn btn--m btn--grey btn--raised" lx-ripple ng-click="sortOrder('cohort.name')">Cohort</button>
+					          </li>
+				            <li ng-repeat="f in allFellows | filter:filterFellows | orderBy:firstO:secondO" class="list-row list-row--has-separator">
 				                <div class="list-row__primary">
 				                  <i class="icon icon--l icon--blue-grey icon--circled mdi">{{ $index + 1 }}</i>
 				                </div>
@@ -93,22 +98,37 @@
 
         <lx-tab heading="Search by Date">
             <p class="p+">
-            	<table class="data-table">
+            	<table id="fellows-table" class="data-table">
 				        <thead>
 				            <tr>
 				              <th>S/N</th>
-				              <th>Slack ID</th>
-				              <th>Code</th>
-				              <th class="data-table__sortable-cell data-table__sortable-cell--desc">Attended</th>
+				              <th ng-click="switchOrder('slack')" class="data-table__sortable-cell">
+				                <span lx-tooltip="sort by slack id" tooltip-position="top">
+				                  <i ng-show="predicate === 'slack'" class="mdi mdi-arrow-down"></i>
+				                  SLACK ID
+			                  </span>
+			                </th>
+				              <th ng-click="switchOrder('code')" class="data-table__sortable-cell">
+				                <span lx-tooltip="sort by code" tooltip-position="top">
+					                <i ng-show="predicate === 'code'" class="mdi mdi-arrow-down"></i>
+					                CODE
+				                </span>
+			                </th>
+				              <th ng-click="switchOrder('attended')" class="data-table__sortable-cell">
+				                <span lx-tooltip="sort by attendance" tooltip-position="top">
+				                  <i ng-show="predicate === 'attended'" class="mdi mdi-arrow-down"></i>
+				                  ATTENDED
+			                  </span>
+				              </th>
 				              <th>
 				                  <i class="mdi mdi-comment-text"></i>
-				                  <span>Comments</span>
+				                  <span>COMMENTS</span>
 				              </th>
 				            </tr>
 				        </thead>
 
 				        <tbody>
-				            <tr ng-repeat="fellow in allByDate">
+				            <tr ng-repeat="fellow in allByDate | orderBy:predicate:reverse">
 				              <td>{{ $index + 1 }}</td>
 				              <td>{{ fellow.slack }}</td>
 				              <td>{{ fellow.code }}</td>
@@ -116,7 +136,14 @@
 				                <span ng-show="fellow.attended === true"><i class="icon icon--s icon--green icon--flat mdi mdi-check"></i></span>
 				                <span ng-show="fellow.attended === false"><i class="icon icon--s icon--red icon--flat mdi mdi-close"></i></span>
 				              </td>
-				              <td>Click to add</td>
+				              <td>
+				                <span ng-hide="fellow.showForm" ng-click="showForm(fellow)">{{fellow.comment || "Click to add"}}</span>
+				                <div ng-show="fellow.showForm">
+				                  <input type="text" class="comments" ng-model="fellow.comment">
+				                  <button ng-click="storeComment(fellow)">Save</button>
+				                  <button ng-click="fellow.showForm=false">Cancel</button>
+			                  </div>
+				              </td>
 				            </tr>
 				        </tbody>
 				      </table>
