@@ -41,6 +41,11 @@ directive.directive('statistics', function(){
         formattedDate = "" + Year + Month + Day;
 
     		$scope.allByDate = statistics.byDate(formattedDate);
+        $scope.allByDate.$loaded().then(function (f) {
+          angular.forEach(f, function(fellow) {
+            fellow.state = 'idle';
+          });
+        });
       };
 
       $scope.fellowDetails = function (fellow_id) {
@@ -56,8 +61,10 @@ directive.directive('statistics', function(){
       };
 
       $scope.storeComment = function (fellow) {
+        fellow.state = 'processing';
         statistics.addComment(formattedDate, fellow, function() {
           fellow.showForm = false;
+          fellow.state = 'idle';
           $scope.$digest();
         });
       };

@@ -140,8 +140,11 @@
 				                <span ng-hide="fellow.showForm" ng-click="showForm(fellow)">{{fellow.comment || "Click to add"}}</span>
 				                <div ng-show="fellow.showForm">
 				                  <input type="text" class="comments" ng-model="fellow.comment">
-				                  <button ng-click="storeComment(fellow)">Save</button>
-				                  <button ng-click="fellow.showForm=false">Cancel</button>
+				                  <span ng-show="fellow.state === 'idle'">
+					                  <button ng-click="storeComment(fellow)">Save</button>
+					                  <button ng-click="fellow.showForm=false">Cancel</button>
+				                  </span>
+				                  <circle-spinner ng-show="fellow.state === 'processing'"></circle-spinner>
 			                  </div>
 				              </td>
 				            </tr>

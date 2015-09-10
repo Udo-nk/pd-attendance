@@ -7,7 +7,8 @@ var app = angular.module('pdAttendance',[
   'pdAttendance.controllers',
   'pdAttendance.services',
   'pdAttendance.directives',
-  'firebase'
+  'firebase',
+  'angular-spinkit'
   ]);
 
 var viewsDir = "app/js/views/";
