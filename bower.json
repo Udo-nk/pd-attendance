@@ -1,9 +1,6 @@
 {
   "name": "pd-attendance",
   "version": "1.0.0",
-  "authors": [
-    "Udo <writeudo@gmail.com>"
-  ],
   "description": "UI for PD Attendance",
   "main": "index.html",
   "license": "MIT",
